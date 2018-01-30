@@ -35,17 +35,11 @@
 
 		mounted() {
 			const el = this.$el
-			this.supportTouch = 'ontouchstart' in window
 
-			if (this.supportTouch) {
-				el.addEventListener('touchstart', this.handleStartDrag, false)
-				document.addEventListener('touchend', this.handleStopDrag, false)
-				document.addEventListener('touchmove', this.handleDragging, false)
-			} else {
-				el.addEventListener('mousedown', this.handleStartDrag, false)
-				document.addEventListener('mouseup', this.handleStopDrag, false)
-				document.addEventListener('mousemove', this.handleDragging, false)
-			}
+			document.addEventListener('touchend', this.handleStopDrag, false)
+			document.addEventListener('touchmove', this.handleDragging, false)
+			document.addEventListener('mouseup', this.handleStopDrag, false)
+			document.addEventListener('mousemove', this.handleDragging, false)
 
 			window.addEventListener('resize', this.handleResize, false)
 		},
@@ -53,15 +47,10 @@
 		beforeDestroy() {
 			const el = this.$el
 
-			if (this.supportTouch) {
-				el.removeEventListener('touchstart', this.handleStartDrag)
-				document.removeEventListener('touchend', this.handleStopDrag)
-				document.removeEventListener('touchmove', this.handleDragging)
-			} else {
-				el.removeEventListener('mousedown', this.handleStartDrag)
-				document.removeEventListener('mouseup', this.handleStopDrag)
-				document.removeEventListener('mousemove', this.handleDragging)
-			}
+			document.removeEventListener('touchend', this.handleStopDrag)
+			document.removeEventListener('touchmove', this.handleDragging)
+			document.removeEventListener('mouseup', this.handleStopDrag)
+			document.removeEventListener('mousemove', this.handleDragging)
 
 			window.removeEventListener('resize', this.handleResize)
 		},
@@ -115,7 +104,10 @@
 </script>
 
 <template>
-	<div class="events">
+	<div
+		class="events"
+		@touchstart="handleStartDrag"
+		@mousedown="handleStartDrag">
 		<div class="events-navigation">
 			<div class="events-navigationSidebar">
 				<cr-date
