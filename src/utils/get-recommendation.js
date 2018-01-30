@@ -133,8 +133,7 @@ export default function getRecommendation(date, members, db) {
 
 					swap.push({
 						event: event.id,
-						room: recomendation.room,
-						// nindex: recomendation.index
+						room: recomendation.room
 					})
 
 					index += recomendation.index
@@ -145,8 +144,7 @@ export default function getRecommendation(date, members, db) {
 				res.push({
 					swap,
 					room: room.id,
-					index,
-					// nindex: getFloorIndex(room.floor, members)
+					index
 				})
 			})
 

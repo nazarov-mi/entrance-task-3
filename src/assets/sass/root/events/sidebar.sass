@@ -28,9 +28,7 @@
 		line-height: 17px
 		h6,
 		p
-			overflow: hidden
-			white-space: nowrap
-			text-overflow: ellipsis
+			+textoverflow
 		h6
 			font-size: 15px
 			font-weight: $medium-weight
@@ -62,9 +60,7 @@
 			letter-spacing: .4px
 		p
 			display: none
-
-+desktop
-	.eventsSidebar
+	+desktop
 		background-color: #fff
 		border-right: 1px solid $grey
 		width: $sidebar-width

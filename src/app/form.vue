@@ -1,6 +1,7 @@
 
 <script>
 	import crRecommendationSelect from '@/components/root/recommendation-select'
+	import crEventDeleteModal from '@/components/root/event-delete-modal'
 	import crUsersSelect from '@/components/root/users-select'
 	import cRoundedButton from '@/components/general/rounded-button'
 	import cDatetime from '@/components/general/datetime'
@@ -15,6 +16,7 @@
 
 		components: {
 			crRecommendationSelect,
+			crEventDeleteModal,
 			crUsersSelect,
 			cRoundedButton,
 			cDatetime,
@@ -103,6 +105,14 @@
 			this.find()
 		},
 
+		mounted() {
+			this.eventDeleteModal = this.$refs.eventDeleteModal
+		},
+
+		beforeDestroy() {
+			this.eventDeleteModal = null
+		},
+
 		computed: {
 			...mapGetters([
 				'getEventById',
@@ -177,13 +187,14 @@
 					})
 			},
 			remove() {
-				const form = this.form
-
-				if (form.isExist) {
-					const id = form.values.id
-					this.removeEvent(id)
-						.then(() => this.back())
+				if (this.form.isExist) {
+					this.eventDeleteModal.open()
 				}
+			},
+			confirmRemove() {
+				const id = this.form.values.id
+				this.removeEvent(id)
+					.then(() => this.back())
 			},
 			setDate(date) {
 				this.form.setData({
@@ -199,9 +210,14 @@
 			changeRecommendation(recommendation) {
 				this.form.setData({
 					room: recommendation && recommendation.room && recommendation.room.id,
-					date: recommendation && recommendation.date
 				})
 				this.swap = recommendation && recommendation.swap
+
+				if (recommendation) {
+					this.form.setData({
+						date: recommendation.date
+					})
+				}
 			},
 			handleDatetimeChange() {
 				this.setRoom(null)
@@ -212,16 +228,17 @@
 
 <template>
 	<div class="form">
+		<cr-event-delete-modal ref="eventDeleteModal" @confirm="confirmRemove"></cr-event-delete-modal>
 		<div class="form-header">
 			<div class="form-container">
 				<h2 class="form-title">
 					{{ form.isExist ? 'Редактирование встречи' : 'Новая встреча' }}
+					<router-link
+						class="form-cancel"
+						:to="{ name: 'main' }">
+						<c-rounded-button icon="asset_icon_close"></c-rounded-button>
+					</router-link>
 				</h2>
-				<router-link
-					class="form-cancel"
-					:to="{ name: 'main' }">
-					<c-rounded-button icon="asset_icon_close"></c-rounded-button>
-				</router-link>
 			</div>
 		</div>
 		<div class="form-body">

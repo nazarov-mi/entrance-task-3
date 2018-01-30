@@ -48,7 +48,7 @@
 
 <template>
 	<c-modal ref="modal">
-		<img slot="icon" src="static/emoji1.png">
+		<img slot="icon" src="static/emoji2.png">
 		<h6 slot="title">Встреча создана!</h6>
 		<template slot="subtitle" v-if="event">
 			<p>

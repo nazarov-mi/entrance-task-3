@@ -4,9 +4,6 @@
 	flex-direction: column
 	width: 100%
 	&-header
-		display: flex
-		justify-content: space-between
-		align-items: center
 		flex: none
 		margin-top: 24px
 	&-body
@@ -36,13 +33,14 @@
 		font-weight: $bold-weight
 		line-height: 18px
 	&-title
-		flex-basis: 0
-		flex-grow: 1
-		flex-shrink: 1
+		position: relative
 		font-size: 20px
 		font-weight: $bold-weight
 		line-height: 25px
 	&-cancel
+		position: absolute
+		top: 0
+		right: 0
 		display: none
 	&-container
 		width: 100%
