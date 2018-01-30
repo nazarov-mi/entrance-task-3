@@ -1,0 +1,62 @@
+
+$button-disabled-color: rgba(0, 0, 0, .20)
+
+.cButton
+	+unselectable
+	display: inline-block
+	height: 44px
+	padding: 0 24px
+	background-color: $grey
+	border: none
+	border-radius: 4px
+	outline: none
+	font-size: inherit
+	font-weight: $medium-weight
+	line-height: 44px
+	white-space: nowrap
+	text-decoration: none
+	cursor: pointer
+	transition: background-color 200ms ease
+	& + &
+		margin-left: 16px
+	&:hover
+		background-color: $grey-dark
+	&:active
+		background-color: $grey-darker
+	&--loading
+		position: relative
+		color: transparent !important
+		&:after
+			content: ' '
+			position: absolute
+			top: 50%
+			left: 50%
+			width: 20px
+			height: 20px
+			margin: -10px 0 0 -10px
+			border: 2px solid transparent
+			border-top-color: $text
+			border-left-color: $text
+			border-radius: 50%
+			animation: spinAround 1000ms linear infinite
+	&--primary
+		background-color: $primary
+		color: #fff
+		&:hover
+			background-color: $primary-dark
+		&:active
+			background-color: $primary-darker
+		&.cButton--loading:after
+			border-top-color: #fff
+			border-left-color: #fff
+	&[disabled]
+		background-color: $grey
+		color: $button-disabled-color
+		cursor: not-allowed
+		&.cButton--loading:after
+			border-top-color: $button-disabled-color
+			border-left-color: $button-disabled-color
+	+desktop
+		height: 36px
+		padding: 0 16px
+		line-height: 36px

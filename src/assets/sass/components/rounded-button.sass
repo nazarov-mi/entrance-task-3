@@ -1,0 +1,23 @@
+
+.cRoundedButton
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 32px
+	height: 32px
+	padding: 0 0 1px
+	cursor: pointer
+	background-color: $grey
+	border: none
+	border-radius: 50%
+	outline: none
+	text-decoration: none
+	fill: rgba(0, 0, 0, .43)
+	transition: fill 200ms ease
+	&:hover
+		fill: #000
+
++desktop
+	.cRoundedButton
+		width: 24px
+		height: 24px

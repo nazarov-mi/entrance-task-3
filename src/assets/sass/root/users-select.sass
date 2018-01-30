@@ -1,0 +1,60 @@
+
+.crUsersSelect
+	&-icon
+		fill: inherit
+		transform: rotate(-90deg)
+	&-list
+		+unselectable
+		list-style: none
+	&-item
+		display: flex
+		justify-content: flex-start
+		align-items: center
+		padding: 5px 16px
+		cursor: pointer
+		&:hover
+			background-color: #f6f7f9
+			font-weight: $bold-weight
+	&-selected
+		+unselectable
+		margin-top: 10px
+		list-style: none
+		& > li
+			display: flex
+			align-items: center
+			margin-top: 8px
+			background-color: #e9ecef
+			border-radius: 999px
+	&-avatar
+		flex: none
+		width: 32px
+		height: 32px
+		overflow: hidden
+		border-radius: 50%
+		img
+			min-width: 100%
+			min-height: 100%
+	&-name
+		flex-basis: 0
+		flex-grow: 1
+		flex-shrink: 1
+		padding: 0 8px
+		span
+			color: #98A9B9
+	&-remove
+		padding: 10px
+		cursor: pointer
+		fill: #afb4b8
+		&:hover
+			fill: #000
+	+desktop
+		&-selected
+			margin-top: 12px
+			& > li
+				display: inline-flex
+				margin: 0 8px 8px 0
+		&-avatar
+			width: 24px
+			height: 24px
+		&-remove
+			padding: 4px 8px

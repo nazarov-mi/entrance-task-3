@@ -1,0 +1,12 @@
+
+export const SET_FETCHING        = 'SET_FETCHING'
+export const MAIN_ADD_MESSAGE    = 'MAIN_ADD_MESSAGE'
+export const MAIN_RESET_MESSAGES = 'MAIN_RESET_MESSAGES'
+
+export const SET_CURRENT_DATE = 'SET_CURRENT_DATE'
+export const SET_SHOWING_DATE = 'SET_SHOWING_DATE'
+
+export const SET_DATA = 'SET_DATA'
+export const SET_EVENT = 'SET_EVENT'
+export const REMOVE_EVENT = 'REMOVE_EVENT'
+export const CHANGE_EVENT_ROOM = 'CHANGE_EVENT_ROOM'

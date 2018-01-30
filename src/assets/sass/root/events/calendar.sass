@@ -1,0 +1,92 @@
+
+.eventsCalendar
+	position: relative
+	height: 100%
+	&-lines
+		position: relative
+		z-index: 5
+		display: flex
+		justify-content: space-between
+		align-items: stretch
+		height: 100%;
+		opacity: .1
+		pointer-events: none
+	&-line
+		flex: none
+		min-width: 65px
+		&:after
+			content: ' '
+			display: block
+			width: 1px
+			height: 100%
+			margin: 0 auto
+			background-color: #1364CD
+	&-rows
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+	&-group
+		padding-top: 45px
+	&-row
+		& + &
+			margin-top: 2px
+	&-time
+		position: absolute
+		top: 0
+		bottom: 0
+		z-index: 6
+		width: 1px
+		background-color: $primary
+	+desktop
+		&-line
+			flex-basis: 0
+			flex-grow: 1
+			flex-shrink: 1
+			min-width: auto
+		&-group
+			padding-top: 37px
+		&-row
+			margin: 8px 0
+			& + &
+				margin-top: 24px
+
+.eventsCalendarRow
+	position: relative
+	height: 58px
+	cursor: not-allowed
+	background-color: $slate
+	&-event,
+	&-empty
+		+transition(background-color)
+		position: absolute
+		top: 0
+		bottom: 0
+		cursor: pointer
+	&-event
+		background-color: $slate
+		&:hover
+			background-color: $slate-dark
+		&:active
+			background-color: $slate-darker
+	&-empty
+		display: flex
+		justify-content: center
+		align-items: center
+		background-color: #fff
+		&:active
+			background-color: $primary-darker !important
+	+desktop
+		height: 28px
+		&-empty
+			&:hover
+				background-color: $primary-dark
+				border-radius: 2px
+				&:after
+					content: '+'
+					display: block
+					margin-top: -4px
+					color: #fff
+					font-size: 20px
+					font-weight: $bold-weight

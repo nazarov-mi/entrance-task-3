@@ -1,0 +1,22 @@
+
+.cDropdown
+	position: relative
+	width: 100%
+	&-handler
+		height: 100%
+	&-content
+		position: fixed
+		z-index: 30
+		overflow: hidden
+		visibility: hidden
+		background-color: #fff
+		box-shadow: 0 1px 10px 0 rgba(0, 44, 92, .28)
+		border-radius: 4px
+	&--active &-content
+		bottom: auto
+		visibility: visible
+	+touch
+		&-content
+			left: 0 !important
+			right: 0 !important
+			min-width: auto !important

@@ -1,0 +1,37 @@
+
+.cDatetime
+	&-date
+		margin-bottom: 8px
+	&-times
+		display: flex
+		align-items: flex-end
+		width: 100%
+	&-time
+		flex-basis: 0
+		flex-grow: 1
+		flex-basis: 1
+		width: 72px
+	&-divider
+		flex: none
+		padding: 0 6px
+		font-weight: $bold-weight
+		line-height: 44px
+		letter-spacing: 0.47px;
+		&:after
+			content: '–'
+	+desktop
+		display: flex
+		align-items: flex-start
+		&-date
+			flex-basis: 0
+			flex-grow: 1
+			flex-shrink: 1
+			margin-right: 16px
+			margin-bottom: 0
+		&-times
+			flex-basis: 0
+			flex-grow: 0
+			flex-shrink: 1
+			width: auto
+		&-divider
+			line-height: 38px

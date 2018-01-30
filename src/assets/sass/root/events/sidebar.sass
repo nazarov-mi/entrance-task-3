@@ -1,0 +1,81 @@
+
+.eventsSidebar
+	position: relative
+	top: 0
+	bottom: 0
+	right: 0
+	z-index: 10
+	height: 100%
+	width: $sidebar-width-touch
+	&-header
+		padding: 24px 16px 8px
+		color: $text-lighter
+		font-size: 11px
+		font-weight: $bold-weight
+		letter-spacing: .4px
+		line-height: 13px
+		white-space: nowrap
+		text-transform: uppercase
+	&-items
+	&-item
+		height: 58px
+		& + &
+			margin-top: 2px
+	&-itemContent
+		padding: 12px 25px 12px 16px
+		background-color: #fff
+		border-right: 1px solid $grey
+		line-height: 17px
+		h6,
+		p
+			overflow: hidden
+			white-space: nowrap
+			text-overflow: ellipsis
+		h6
+			font-size: 15px
+			font-weight: $medium-weight
+		p
+			font-size: 13px
+		&--disabled
+			cursor: not-allowed
+			color: $text-lighter !important
+		&--hover,
+		&:hover
+			h6
+				color: $text-primary
+		&--active,
+		&:active
+			h6
+				color: $text-primary-light
+	&--mini
+		pointer-events: none
+	&--mini &-itemContent
+		display: inline-block
+		padding: 5px 8px
+		margin-left: 16px
+		box-shadow: 0 1px 8px 0 rgba(0, 44, 92, .28)
+		border: none
+		border-radius: 4px
+		h6
+			font-size: 11px
+			font-weight: $bold-weight
+			letter-spacing: .4px
+		p
+			display: none
+
++desktop
+	.eventsSidebar
+		background-color: #fff
+		border-right: 1px solid $grey
+		width: $sidebar-width
+		&-header
+			padding: 20px 25px 4px
+		&-item
+			height: 44px
+			& + &
+				margin-top: 8px
+		&-itemContent
+			padding: 4px 25px
+			border: none
+			h6
+				margin-bottom: 2px

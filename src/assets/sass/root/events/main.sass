@@ -1,0 +1,58 @@
+
+.events
+	width: 100%
+	&-navigation
+		position: fixed
+		top: $header-height-touch
+		left: 0
+		right: 0
+		z-index: 9
+		overflow: hidden
+		background-color: #fff
+	&-navigationSidebar
+		height: 56px
+		border-bottom: 1px solid $grey
+	&-navigationContent
+		height: 32px
+		overflow: hidden
+		border-bottom: 1px solid $grey
+	&-main
+		position: relative
+		display: flex
+		justify-content: flex-start
+		align-items: stretch
+		min-height: 100%
+		padding-top: 88px
+		overflow: hidden
+		background-color: #f7f8f9
+	&-mainSidebar
+		position: relative
+		z-index: 8
+		flex: none
+		width: $sidebar-width-touch
+	&-mainContent
+		flex-basis: 0
+		flex-grow: 1
+		flex-shrink: 1
+
++desktop
+	.events
+		&-navigation
+			top: $header-height
+			display: flex
+			justify-content: flex-start
+			align-items: flex-start
+			height: 45px
+		&-navigationSidebar
+			position: relative
+			width: $sidebar-width
+			height: 100%
+		&-navigationContent
+			flex-basis: 0
+			flex-grow: 1
+			flex-shrink: 1
+			height: 100%
+		&-main
+			padding-top: 45px
+		&-mainSidebar
+			width: $sidebar-width

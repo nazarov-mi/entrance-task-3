@@ -1,0 +1,28 @@
+
+.eventsDate
+	display: flex
+	align-items: stretch
+	height: 100%
+	padding: 0 24px
+	&-handler
+		position: relative
+		display: flex
+		align-items: center
+		height: 100%
+	&-arrow
+		flex: none
+		&--left
+			transform: rotate(180deg)
+		&--right
+	&-label
+		+unselectable
+		flex-basis: 0
+		flex-grow: 1
+		flex-shrink: 1
+		cursor: pointer
+		font-size: 15px	
+		font-weight: $medium-weight
+		white-space: nowrap
+		text-align: center
+	&-content
+		padding: 8px

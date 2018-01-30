@@ -1,0 +1,71 @@
+
+.eventsTimeline
+	position: relative
+	height: 100%
+	overflow: hidden
+	&-wrapper
+		position: absolute
+		top: 0
+		bottom: 0
+		left: $sidebar-width-touch
+		display: flex
+		justify-content: flex-start
+		align-items: stretch
+		height: 100%
+	&-time
+		display: flex
+		justify-content: center
+		align-items: center
+		min-width: 65px
+		cursor: pointer
+		color: #252525
+		font-size: 11px
+		font-weight: $bold-weight
+		line-height: 13px
+		letter-spacing: .4px
+		text-align: center
+		&--passed
+			color: $text-lighter
+	&-current
+		position: absolute
+		top: 0
+		bottom: 0
+		width: 0
+		z-index: 20
+		&:after
+			content: ' '
+			position: absolute
+			top: 50%
+			bottom: 0
+			left: 50%
+			width: 1px
+			background-color: $primary
+	&-currentTime
+		position: absolute
+		top: 50%
+		left: 0
+		z-index: 2
+		width: 50px
+		padding: 4px 0
+		transform: translate(-50%, -50%)
+		background-color: $primary
+		border-radius: 50px
+		color: #fff
+		font-size: 11px
+		line-height: 13px
+		letter-spacing: .4px
+		text-align: center
+
+
++desktop
+	.eventsTimeline
+		padding-left: 0
+		&-wrapper
+			left: 0
+			right: 0
+			justify-content: space-between
+		&-time
+			flex-basis: 0
+			flex-grow: 1
+			flex-shrink: 1
+			min-width: auto

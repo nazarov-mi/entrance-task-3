@@ -1,0 +1,46 @@
+
+.crRecommendationSelect
+	+unselectable
+	&-item
+		display: flex
+		justify-content: space-between
+		align-items: center
+		cursor: pointer
+		background-color: #e9ecef
+		border-radius: 4px
+		transition: background-color 200ms ease
+		& + &
+			margin-top: 8px
+		&:hover
+			background-color: #dde0e5
+		&:active
+			background-color: #c8cdd3
+		&--selected
+			background-color: #007dff !important
+			color: #fff
+			fill: #fff
+	&-title
+		flex-basis: 0
+		flex-grow: 1
+		flex-shrink: 1
+		padding: 10px
+		overflow: hidden
+		line-height: 17px
+		white-space: nowrap
+		text-overflow: ellipsis
+		span
+			display: inline-block
+			margin-right: 12px
+			font-weight: $bold-weight
+	&-close
+		flex-basis: 0
+		flex-grow: 0
+		flex-shrink: 1
+		padding: 10px 16px
+	&-empty
+		font-weight: $bold-weight
+		line-height: 37px
+		text-align: center
+	+desktop
+		&-title span
+			margin-right: 16px

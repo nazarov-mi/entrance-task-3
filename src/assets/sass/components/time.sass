@@ -1,0 +1,39 @@
+
+.cTime
+	&-dropdown
+		+unselectable
+		display: flex
+		align-items: center
+	&-col
+		flex-basis: 0
+		flex-grow: 1
+		flex-shrink: 1
+	&-divider
+		flex-basis: 0
+		flex-grow: 0
+		flex-shrink: 1
+		padding: 0 2px
+		font-weight: $bold-weight
+		letter-spacing: 0.47px
+		&:after
+			content: ':'
+	&-arrow
+		display: flex
+		justify-content: center
+		padding: 16px 0
+		cursor: pointer
+		&--up > *
+			transform: rotate(-90deg)
+		&--down > *
+			transform: rotate(90deg)
+	&-label
+		font-size: 16px
+		font-weight: $bold-weight
+		text-align: center
+
++desktop
+	.cTime
+		&-arrow
+			padding: 8px 0
+		&-label
+			font-size: inherit
