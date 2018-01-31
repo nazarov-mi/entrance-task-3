@@ -33,7 +33,7 @@ export const fetchAll = ({ commit }) => {
 
 export const saveEvent = ({ commit, getters }, { data, swap }) => {
 	return api.saveEvent(data, swap)
-		.then(data => {
+		.then(rdata => {
 			swap && swap.forEach(el => {
 				const event = getters.getEventById(el.event)
 				commit(TYPES.CHANGE_EVENT_ROOM, {
@@ -41,8 +41,9 @@ export const saveEvent = ({ commit, getters }, { data, swap }) => {
 					room: el.room
 				})
 			})
-			commit(TYPES.SET_EVENT, data)
-			return data.id
+			console.log(rdata)
+			commit(TYPES.SET_EVENT, rdata)
+			return rdata.id
 		})
 }
 

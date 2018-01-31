@@ -1,4 +1,6 @@
 
+import copy from '@/utils/copy'
+
 const HALF_OF_HOUR = 1000 * 60 * 30
 
 export const start = (state) => {
@@ -81,7 +83,7 @@ export const getEmptySlotsByRoomId = (state, getters) => (roomId) => {
 
 export const getEventById = (state, getters) => (id, users, room) => {
 	const events = state.events.filter(el => (el.id === id))
-	const event = events[0]
+	const event = copy(events[0])
 	
 	if (!event) {
 		return null
@@ -101,11 +103,11 @@ export const getEventById = (state, getters) => (id, users, room) => {
 export const getRoomById = (state) => (id) => {
 	const rooms = state.rooms.filter(el => (el.id === id))
 
-	return rooms[0]
+	return copy(rooms[0])
 }
 
 export const getUserById = (state) => (id) => {
 	const users = state.users.filter(el => (el.id === id))
 
-	return users[0]
+	return copy(users[0])
 }

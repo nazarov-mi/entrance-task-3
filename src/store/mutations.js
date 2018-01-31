@@ -2,7 +2,7 @@
 import { parseDate } from '@/utils/date'
 import * as TYPES from './types'
 
-const parseEvent = (event) => ({
+const parseEvent = (event) => Object.freeze({
 	id: event.id,
 	title: event.title,
 	date: {
@@ -13,7 +13,7 @@ const parseEvent = (event) => ({
 	members: event.users && event.users.map(user => user.id)
 })
 
-const parseUser = (el) => ({
+const parseUser = (el) => Object.freeze({
 	id: el.id,
 	login: el.login,
 	floor: el.homeFloor,

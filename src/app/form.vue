@@ -177,12 +177,15 @@
 				})
 			},
 			save() {
+				const isExist = this.form.isExist
 				this.saveEvent({
 					data: this.form.values,
 					swap: this.swap
 				})
 					.then(id => {
-						this.$root.$emit('event-created', id)
+						if (!isExist) {
+							this.$root.$emit('event-created', id)
+						}
 						this.back()
 					})
 			},
